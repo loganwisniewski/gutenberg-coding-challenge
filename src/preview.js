@@ -37,6 +37,7 @@ export default function Preview( { countryCode, relatedPosts } ) {
 				<h3 className="xwp-country-card__related-posts__heading">
 					{ hasRelatedPosts
 						? sprintf(
+								/* translators: %d: Number of related posts */
 								__( 'There are %d related posts:' ),
 								relatedPosts.length
 						  )
