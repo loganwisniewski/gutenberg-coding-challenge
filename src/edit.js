@@ -32,8 +32,11 @@ export default function Edit( { attributes, setAttributes } ) {
 	useEffect( () => setPreview( countryCode ), [ countryCode ] );
 
 	const handleChangeCountry = () => {
-		if ( isPreview ) setPreview( false );
-		else if ( countryCode ) setPreview( true );
+		if ( isPreview ) {
+			setPreview( false );
+		} else if ( countryCode ) {
+			setPreview( true );
+		}
 	};
 
 	const handleChangeCountryCode = ( newCountryCode ) => {
