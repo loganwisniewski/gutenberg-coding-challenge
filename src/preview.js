@@ -26,6 +26,7 @@ export default function Preview( { countryCode, relatedPosts } ) {
 	if ( ! countryCode ) return null;
 
 	const emojiFlag = getEmojiFlag( countryCode );
+	const hasRelatedPosts = relatedPosts?.length > 0;
 	const relatedPostsText = getRelatedPostsText( relatedPosts?.length );
 
 	return (
