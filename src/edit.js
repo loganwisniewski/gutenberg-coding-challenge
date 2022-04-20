@@ -3,7 +3,7 @@
  */
 import { edit, globe } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
-import { BlockControls } from '@wordpress/block-editor';
+import { useBlockProps, BlockControls } from '@wordpress/block-editor';
 import {
 	ComboboxControl,
 	Placeholder,
@@ -82,7 +82,7 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</ToolbarGroup>
 			</BlockControls>
-			<div>
+			<div { ...useBlockProps() }>
 				{ isPreview ? (
 					<Preview
 						countryCode={ countryCode }
