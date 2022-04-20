@@ -38,7 +38,7 @@ export default function Preview( { countryCode, relatedPosts } ) {
 				<div className="xwp-country-card-flag">{ emojiFlag }</div>
 			</div>
 			<h3 className="xwp-country-card__heading">
-				{ __( 'Hello from' ) }{ ' ' }
+				{ __( 'Hello from ' ) }
 				<strong>{ countries[ countryCode ] }</strong> (
 				<span className="xwp-country-card__country-code">
 					{ countryCode }
