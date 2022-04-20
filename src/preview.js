@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { __, sprintf } from '@wordpress/i18n';
+import { __, _n, sprintf } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -11,23 +11,11 @@ import continentNames from '../assets/continent-names.json';
 import continents from '../assets/continents.json';
 import { getEmojiFlag, stripHtmlTags } from './utils';
 
-function getRelatedPostsText( postCount = 0 ) {
-	if ( postCount === 1 ) {
-		/* translators: %d: Number of related posts */
-		return __( 'There is %d related post:' );
-	} else if ( postCount > 1 ) {
-		/* translators: %d: Number of related posts */
-		return 'There are %d related posts:';
-	}
-	return 'There are no related posts.';
-}
-
 export default function Preview( { countryCode, relatedPosts } ) {
 	if ( ! countryCode ) return null;
 
 	const emojiFlag = getEmojiFlag( countryCode );
 	const hasRelatedPosts = relatedPosts?.length > 0;
-	const relatedPostsText = getRelatedPostsText( relatedPosts?.length );
 
 	return (
 		<div className="xwp-country-card">
@@ -47,7 +35,17 @@ export default function Preview( { countryCode, relatedPosts } ) {
 			</h3>
 			<div className="xwp-country-card__related-posts">
 				<h3 className="xwp-country-card__related-posts__heading">
-					{ sprintf( relatedPostsText, relatedPosts.length ) }
+					{ hasRelatedPosts
+						? sprintf(
+								/* translators: %d: Number of related posts */
+								_n(
+									'There is %d related post:',
+									'There are %d related posts:',
+									relatedPosts.length
+								),
+								relatedPosts.length
+						  )
+						: __( 'There are no related posts.' ) }
 				</h3>
 				{ hasRelatedPosts && (
 					<ul className="xwp-country-card__related-posts-list">
