@@ -9,7 +9,7 @@ import { __, sprintf } from '@wordpress/i18n';
 import countries from '../assets/countries.json';
 import continentNames from '../assets/continent-names.json';
 import continents from '../assets/continents.json';
-import { getEmojiFlag } from './utils';
+import { getEmojiFlag, stripHTML } from './utils';
 
 function getRelatedPostsText( postCount = 0 ) {
 	if ( postCount === 1 ) {
@@ -62,7 +62,7 @@ export default function Preview( { countryCode, relatedPosts } ) {
 										{ relatedPost.title }
 									</h3>
 									<p className="excerpt">
-										{ relatedPost.excerpt }
+										{ stripHTML( relatedPost.excerpt ) }
 									</p>
 								</a>
 							</li>

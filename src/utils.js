@@ -6,3 +6,7 @@ export function getEmojiFlag( countryCode ) {
 			.map( ( char ) => 127397 + char.charCodeAt() )
 	);
 }
+
+export function stripHTML( myString ) {
+	return myString.replace( /(<([^>]+)>)/gi, '' );
+}
