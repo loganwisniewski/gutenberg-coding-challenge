@@ -7,6 +7,6 @@ export function getEmojiFlag( countryCode ) {
 	);
 }
 
-export function stripHtmlTags( myString ) {
-	return myString.replace( /(<([^>]+)>)/gi, '' );
+export function stripHtmlTags( myString = '' ) {
+	return myString?.replace( /(<([^>]+)>)/gi, '' );
 }
