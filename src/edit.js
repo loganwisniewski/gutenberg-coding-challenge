@@ -23,6 +23,8 @@ import Preview from './preview';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const { countryCode, relatedPosts } = attributes;
+
+	/* Build Country Code dropdown options */
 	const options = Object.keys( countries ).map( ( code ) => ( {
 		value: code,
 		label: getEmojiFlag( code ) + '  ' + countries[ code ] + ' — ' + code,
@@ -31,7 +33,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const [ isPreview, setPreview ] = useState();
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
-	useEffect( () => setPreview( Boolean( countryCode ) ), [] );
+	useEffect( () => setPreview( Boolean( countryCode ) ), [] ); // Sets Preview state on mount
 
 	const handleChangeCountry = () => {
 		if ( isPreview ) {
@@ -58,6 +60,7 @@ export default function Edit( { attributes, setAttributes } ) {
 		[ countryCode ]
 	);
 
+	/* Sets relatedPosts on change */
 	useEffect( () => {
 		setAttributes( {
 			relatedPosts:
