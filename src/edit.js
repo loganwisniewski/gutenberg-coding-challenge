@@ -30,7 +30,8 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const [ isPreview, setPreview ] = useState();
 
-	useEffect( () => setPreview( countryCode ), [ countryCode ] );
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	useEffect( () => setPreview( Boolean( countryCode ) ), [] );
 
 	const handleChangeCountry = () => {
 		if ( isPreview ) {
